@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_25_104208) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_29_085912) do
   create_table "videos", force: :cascade do |t|
     t.string "title"
     t.string "channel_name"
@@ -18,5 +18,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_25_104208) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "youtube_id"
+    t.string "thumbnail_url"
   end
 end

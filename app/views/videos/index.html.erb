@@ -1,5 +1,5 @@
 <h1>カテゴリ別急上昇ランキング</h1>
-<%= form_with url: videos_path(category_id: params[:category_id]), method: :get, local: true do %>
+<%= form_with url: videos_path, method: :get, local: true do %>
   <label for="category_id">カテゴリを選択</label>
   <select name="category_id" id="category_id">
     <option value="0">すべて</option>
@@ -11,7 +11,7 @@
     <option value="23">コメディ</option>
     <option value="27">教育</option>
     <option value="28">科学&技術</option>
-    <!-- その他カテゴリを追加 --> 
+    <option value="99">VTuber関連</option> <!-- VTuber関連のカテゴリ -->
   </select>
   <button type="submit">表示</button>
 <% end %>

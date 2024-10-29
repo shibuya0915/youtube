@@ -58,3 +58,6 @@ end
 
 gem 'httparty'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'whenever', require: false
