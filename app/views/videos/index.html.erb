@@ -19,9 +19,12 @@
 <ul>
   <% @videos.each do |video| %>
     <li>
-      <h2><%= video.title %></h2>
+      <h2><%= link_to video.title, video.youtube_url, target: "_blank" %></h2>
+      <%= link_to image_tag(video.thumbnail_url, alt: "#{video.title}のサムネイル"), video.youtube_url, target: "_blank" %>
       <p>チャンネル: <%= video.channel_name %></p>
       <p>再生回数: <%= video.view_count %>回</p>
+      <p>投稿日: <%= video.published_at.strftime("%Y年%m月%d日 %H:%M") if video.published_at.present? %></p> <!-- 追加 -->
     </li>
   <% end %>
 </ul>
+
