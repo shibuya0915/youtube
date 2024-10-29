@@ -5,7 +5,7 @@ gem "rails", "~> 7.2.1", ">= 7.2.1.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 1.4"
+# gem "sqlite3", ">= 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
@@ -61,3 +61,16 @@ gem 'httparty'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'whenever', require: false
+
+ruby '3.3.4'
+
+gem 'bundler', '2.5.11'
+
+group :development, :test do
+  gem 'sqlite3', '~> 1.4'
+end
+
+# PostgreSQL を production 環境で使用
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end
