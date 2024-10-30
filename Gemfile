@@ -68,7 +68,8 @@ ruby '3.3.4'
 gem 'bundler', '2.5.11'
 
 
-gem 'sqlite3', '~> 1.4'
+gem 'pg', '~> 1.2'
+
 
 # # PostgreSQL を production 環境で使用
 # group :production do
