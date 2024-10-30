@@ -58,7 +58,8 @@ end
 
 gem 'httparty'
 
-gem 'dotenv-rails', groups: [:development, :test]
+gem 'dotenv-rails'
+# groups: [:development, :test]
 
 gem 'whenever', require: false
 
@@ -66,11 +67,10 @@ ruby '3.3.4'
 
 gem 'bundler', '2.5.11'
 
-group :development, :test do
-  gem 'sqlite3', '~> 1.4'
-end
 
-# PostgreSQL を production 環境で使用
-group :production do
-  gem 'pg', '>= 0.18', '< 2.0'
-end
+gem 'sqlite3', '~> 1.4'
+
+# # PostgreSQL を production 環境で使用
+# group :production do
+#   gem 'pg', '>= 0.18', '< 2.0'
+# end
