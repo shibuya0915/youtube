@@ -69,3 +69,5 @@ gem 'bundler', '2.5.11'
 
 
 gem 'pg', '~> 1.2'
+
+gem 'rack-cors'
