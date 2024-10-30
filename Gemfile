@@ -68,11 +68,4 @@ ruby '3.3.4'
 gem 'bundler', '2.5.11'
 
 
-# gem 'pg', '~> 1.2'
-
-
-# # PostgreSQL を production 環境で使用
-# group :production do
-#   gem 'pg', '>= 0.18', '< 2.0'
-# end
-gem 'mysql2', '>= 0.5.6'
+gem 'pg', '~> 1.2'

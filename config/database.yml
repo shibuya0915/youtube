@@ -1,12 +1,12 @@
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DB_USERNAME'] %>       # データベースのユーザー名
-  password: <%= ENV['DB_PASSWORD'] %>       # データベースのパスワード
-  host: <%= ENV['DB_HOST'] %>               # データベースのホスト
-  port: <%= ENV.fetch("DB_PORT", 3306) %>   # データベースのポート
-  database: <%= ENV['DB_NAME'] %>  
+  username: <%= ENV.fetch("DB_USERNAME") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  host: <%= ENV.fetch("DB_HOST") %>
+  port: <%= ENV.fetch("DB_PORT") { 5432 } %>  # PostgreSQLのデフォルトポートは5432
+  database: <%= ENV.fetch("DB_NAME") %>
 
 development:
   <<: *default
@@ -17,11 +17,5 @@ test:
   database: youtube
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  database: your_database_name
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>  # Renderのデータベースホスト名を環境変数で指定
-  port: 3306 
-
+  <<: *default
+  database: youtube
