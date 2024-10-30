@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_29_181131) do
-  create_table "videos", force: :cascade do |t|
+ActiveRecord::Schema[7.2].define(version: 2024_10_30_022134) do
+  create_table "videos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.string "channel_name"
     t.integer "view_count"
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_29_181131) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "youtube_id"
-    t.string "thumbnail_url"
     t.datetime "published_at"
+    t.string "thumbnail_url"
   end
 end

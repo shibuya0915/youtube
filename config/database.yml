@@ -1,20 +1,22 @@
-# config/database.yml
-
 default: &default
+  adapter: mysql2
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
+  username: <%= ENV['ryusei'] %>
+  password: <%= ENV['ryusei0915'] %>
+  host: <%= ENV['localhost'] %>
+  port: <%= ENV.fetch("DB_PORT", 3306) %>
+  database: <%= ENV['youtube'] %>
 
 development:
   <<: *default
-  adapter: sqlite3
-  database: db/development.sqlite3
+  database: youtube
 
 test:
   <<: *default
-  adapter: sqlite3
-  database: db/test.sqlite3
+  database: youtube
 
 production:
   <<: *default
-  adapter: postgresql
-  url: <%= ENV['DATABASE_URL'] %>
+  database: youtube
+
