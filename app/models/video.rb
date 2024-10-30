@@ -33,6 +33,7 @@ class Video < ApplicationRecord
   def self.fetch_vtuber_videos
     api_key = ENV['API_KEY']
     vtuber_keywords = ["ホロライブ", "にじさんじ", "ブイスポ"]
+    Rails.logger.info("Using API Key: #{api_key}")
 
     vtuber_keywords.each do |keyword|
       # 1. Search APIで動画IDを取得
