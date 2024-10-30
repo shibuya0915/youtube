@@ -2,11 +2,11 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['ryusei'] %>
-  password: <%= ENV['ryusei0915'] %>
-  host: <%= ENV['localhost'] %>
-  port: <%= ENV.fetch("DB_PORT", 3306) %>
-  database: <%= ENV['youtube'] %>
+  username: <%= ENV['DB_USERNAME'] %>       # データベースのユーザー名
+  password: <%= ENV['DB_PASSWORD'] %>       # データベースのパスワード
+  host: <%= ENV['DB_HOST'] %>               # データベースのホスト
+  port: <%= ENV.fetch("DB_PORT", 3306) %>   # データベースのポート
+  database: <%= ENV['DB_NAME'] %>  
 
 development:
   <<: *default
@@ -17,6 +17,11 @@ test:
   database: youtube
 
 production:
-  <<: *default
-  database: youtube
+  adapter: mysql2
+  encoding: utf8
+  database: your_database_name
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] %>  # Renderのデータベースホスト名を環境変数で指定
+  port: 3306 
 
