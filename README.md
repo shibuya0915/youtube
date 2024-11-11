@@ -1,24 +1,15 @@
-# README
+# YouTrend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+> このアプリは、YouTubeのトレンド動画をカテゴリ別に取得し、ユーザーに最新のトレンド情報を提供します。
 
-Things you may want to cover:
+## 使用技術
+・Ruby on Rails 7.2.1.2
+・ruby 3.3.4
+・YouTube Data API v3
+・postgreSQL
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### ポイント
+- カテゴリ別でトレンド動画を表示させる
+- 私がvtuberが好きなのでカテゴリを追加
+- サムネや閲覧数,投稿日も表示させるため評価しやすい
