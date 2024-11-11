@@ -80,9 +80,7 @@ class Video < ApplicationRecord
         else
           Rails.logger.error("YouTube Search APIリクエストに失敗しました（キーワード: #{keyword}）: #{search_response['error'] || search_response}")
         end
-        end
       end
-    end
     
 
   # 全カテゴリとVTuber関連の急上昇動画を定期的に取得するメソッド
@@ -96,10 +94,8 @@ class Video < ApplicationRecord
 
     fetch_vtuber_videos
   end
-end
 
   # YouTubeの動画URLを生成するメソッド
   def youtube_url
     "https://www.youtube.com/watch?v=#{youtube_id}"
   end
-end
