@@ -21,7 +21,5 @@
 
 every 1.hour do
   runner "Video.fetch_and_save_trending_videos", environment: "production"
-
-  # development 環境のタスク
   runner "Video.fetch_and_save_trending_videos", environment: "development"
 end
