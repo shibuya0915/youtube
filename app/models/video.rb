@@ -27,11 +27,13 @@ class Video < ApplicationRecord
       end
     else
       Rails.logger.error("YouTube APIリクエストに失敗しました: #{response['error'] || response}")
+      end
     end
   end
 
   # VTuber関連動画を取得して保存するメソッド
   def self.fetch_vtuber_videos
+    Video.where(category: category_id.to_s).delete_all
     api_key = ENV['API_KEY']
     vtuber_keywords = ["ホロライブ", "にじさんじ", "ブイスポ"]
     Rails.logger.info("Using API Key: #{api_key}")
@@ -40,6 +42,7 @@ class Video < ApplicationRecord
       api_key = ENV['API_KEY']
       vtuber_keywords = ["ホロライブ", "にじさんじ", "ブイスポ"]
       Rails.logger.info("Using API Key: #{api_key}")
+    end
     
       vtuber_keywords.each do |keyword|
         # APIで動画IDを取得（`order=date`を追加）
