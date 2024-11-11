@@ -43,9 +43,11 @@ class Video < ApplicationRecord
       vtuber_keywords = ["ホロライブ", "にじさんじ", "ブイスポ"]
       Rails.logger.info("Using API Key: #{api_key}")
     end
+  end
     
       vtuber_keywords.each do |keyword|
         # APIで動画IDを取得（`order=date`を追加）
+        Video.where(category: category_id.to_s).delete_all
         search_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=#{CGI.escape(keyword)}&regionCode=JP&maxResults=50&order=date&key=#{api_key}"
         Rails.logger.info("Sending request to YouTube Search API for keyword '#{keyword}': #{search_url}")
         search_response = HTTParty.get(search_url)
@@ -78,12 +80,14 @@ class Video < ApplicationRecord
         else
           Rails.logger.error("YouTube Search APIリクエストに失敗しました（キーワード: #{keyword}）: #{search_response['error'] || search_response}")
         end
+        end
       end
     end
     
 
   # 全カテゴリとVTuber関連の急上昇動画を定期的に取得するメソッド
   def self.fetch_and_save_all_videos
+    Video.where(category: category_id.to_s).delete_all
     category_ids = [1, 10, 17, 20, 25, 23, 27, 28, 99]
 
     category_ids.each do |category_id|
@@ -92,6 +96,7 @@ class Video < ApplicationRecord
 
     fetch_vtuber_videos
   end
+end
 
   # YouTubeの動画URLを生成するメソッド
   def youtube_url
