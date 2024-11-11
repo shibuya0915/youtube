@@ -3,7 +3,9 @@
   padding: 0.1em 0.5em;
   background: -webkit-linear-gradient(to right, #ff0000, transparent);
   background: linear-gradient(to right, #ff0000, transparent);
-  color: #000;">カテゴリ別急上昇ランキング</h1>
+  color: #000;
+  margin-left: 20px;
+    ">カテゴリ別急上昇ランキング</h1>
 
 <%= form_with url: videos_path, method: :get, local: true do %>
   <label for="category_id" style="
@@ -14,10 +16,12 @@
   margin-bottom: 8px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+  margin-left: 30px;
   ">カテゴリを選択</label>
   <select name="category_id" id="category_id" style="
   width: 25%;
-  padding: 5px;
+  height: 35px;
+  padding: 10px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -27,9 +31,8 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
-  transition: border-color 0.3s ease;
-" onfocus="this.style.borderColor='#4CAF50'" onblur="this.style.borderColor='#ccc'"
->
+  margin-left: 30px;
+">
     <option value="0">すべて</option>
     <option value="1">映画</option>
     <option value="10">音楽</option>
@@ -44,13 +47,13 @@
 <button type="submit" style="
   background-color: #ff0000;
   color: white;
-  padding: 10px 10px;
+  padding: 10px 5px 10px 5px;
   font-size: 12px;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  width: 60px;
 ">
   表示
 </button>
