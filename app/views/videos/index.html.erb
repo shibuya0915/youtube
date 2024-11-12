@@ -5,34 +5,34 @@
   background: linear-gradient(to right, #ff0000, transparent);
   color: #000;
   margin-left: 20px;
-    ">カテゴリ別急上昇ランキング</h1>
+">カテゴリ別急上昇ランキング</h1>
 
 <%= form_with url: videos_path, method: :get, local: true do %>
   <label for="category_id" style="
     font-size:16px;
-  font-weight: bold;
-  color: #333;
-  display: block;
-  margin-bottom: 8px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-left: 30px;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-left: 30px;
   ">カテゴリを選択</label>
   <select name="category_id" id="category_id" style="
-  width: 25%;
-  height: 35px;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  color: #333;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  cursor: pointer;
-  margin-left: 30px;
-">
+    width: 25%;
+    height: 35px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    margin-left: 30px;
+  ">
     <option value="0">すべて</option>
     <option value="1">映画</option>
     <option value="10">音楽</option>
@@ -44,19 +44,19 @@
     <option value="28">科学&技術</option>
     <option value="99">VTuber関連</option>
   </select>
-<button type="submit" style="
-  background-color: #ff0000;
-  color: white;
-  padding: 10px 5px 10px 5px;
-  font-size: 12px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 60px;
-">
-  表示
-</button>
+  <button type="submit" style="
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 60px;
+  ">
+    表示
+  </button>
 <% end %>
 
 <ul>
@@ -71,3 +71,39 @@
   <% end %>
 </ul>
 
+<a href="#" id="back-to-top" style="
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff0000;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    display: none;
+    z-index: 1000;
+">▲ 一番上に戻る</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var backToTopButton = document.getElementById("back-to-top");
+
+    window.addEventListener("scroll", function() {
+        if (window.pageYOffset > 300) { // 300px以上スクロールしたら表示
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    });
+
+    backToTopButton.addEventListener("click", function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+});
+</script>
